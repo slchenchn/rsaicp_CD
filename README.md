@@ -1,0 +1,1 @@
+1. default dataset type: ade20k

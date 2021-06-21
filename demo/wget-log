@@ -1,0 +1,80 @@
+--2021-06-14 14:48:29--  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 14:50:39--  (try: 2)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 14:52:52--  (try: 3)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 14:55:06--  (try: 4)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 14:57:20--  (try: 5)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 14:59:36--  (try: 6)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:01:52--  (try: 7)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:04:08--  (try: 8)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:06:27--  (try: 9)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:08:45--  (try:10)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:11:05--  (try:11)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:13:24--  (try:12)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:15:44--  (try:13)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:18:03--  (try:14)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:20:22--  (try:15)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:22:41--  (try:16)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:25:01--  (try:17)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:27:20--  (try:18)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:29:39--  (try:19)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Retrying.
+
+--2021-06-14 15:31:58--  (try:20)  https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmsegmentation/models/pspnet/pspnet_r50-d8_512x1024_40k_cityscapes/pspnet_r50-d8_512x1024_40k_cityscapes_20200605_003338-2966598c.pth
+Connecting to 202.114.107.125:7890... failed: Connection timed out.
+Giving up.
+
