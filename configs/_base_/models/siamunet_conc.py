@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-18
-Last Modified: 2021-06-18
+Last Modified: 2021-06-21
 	content: 
 '''
 # model settings
@@ -35,7 +35,7 @@ model = dict(
     #     align_corners=False,
     #     loss_decode=dict(
     #         type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
-    auxiliary_head=dict(
+    decode_head=dict(
         type='FCNHead',
         in_channels=16,
         channels=16,

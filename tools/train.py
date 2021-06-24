@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-06-21
+	content: 
+'''
 import argparse
 import copy
 import os
@@ -61,6 +67,7 @@ def parse_args():
 
 
 def main():
+    
     args = parse_args()
 
     cfg = Config.fromfile(args.config)
@@ -95,11 +102,13 @@ def main():
         init_dist(args.launcher, **cfg.dist_params)
 
     # create work_dir
+    timestamp = time.strftime('%Y%m%d_%H%M%S', time.localtime())
+    cfg.work_dir = osp.join(cfg.work_dir, timestamp)
     mmcv.mkdir_or_exist(osp.abspath(cfg.work_dir))
     # dump config
     cfg.dump(osp.join(cfg.work_dir, osp.basename(args.config)))
+    
     # init the logger before other steps
-    timestamp = time.strftime('%Y%m%d_%H%M%S', time.localtime())
     log_file = osp.join(cfg.work_dir, f'{timestamp}.log')
     logger = get_root_logger(log_file=log_file, log_level=cfg.log_level)
 

@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-20
-Last Modified: 2021-06-20
+Last Modified: 2021-06-21
 	content: 
 '''
 import os
@@ -18,7 +18,7 @@ from torch.utils.data import Dataset
 from mmseg.core import eval_metrics
 from mmseg.utils import get_root_logger
 from .builder import DATASETS
-from .pipelines import Compose
+from .pipelines import Compose, ComposeWithVisualization
 
 
 @DATASETS.register_module()
@@ -98,8 +98,10 @@ class CustomDatasetCD(Dataset):
                  ignore_index=255,
                  reduce_zero_label=False,
                  classes=None,
-                 palette=None):
-        self.pipeline = Compose(pipeline)
+                 palette=None,
+                 if_visualize=False,
+                 ):
+        self.pipeline = ComposeWithVisualization(pipeline, if_visualize=if_visualize)
         self.img1_dir = img1_dir
         self.img2_dir = img2_dir
         self.img_suffix = img_suffix
@@ -116,8 +118,9 @@ class CustomDatasetCD(Dataset):
 
         # join paths if data_root is specified
         if self.data_root is not None:
-            if not osp.isabs(self.img_dir):
-                self.img_dir = osp.join(self.data_root, self.img_dir)
+            if not osp.isabs(self.img1_dir):
+                self.img1_dir = osp.join(self.data_root, self.img1_dir)
+                self.img2_dir = osp.join(self.data_root, self.img2_dir)
             if not (self.ann_dir is None or osp.isabs(self.ann_dir)):
                 self.ann_dir = osp.join(self.data_root, self.ann_dir)
             if not (self.split is None or osp.isabs(self.split)):

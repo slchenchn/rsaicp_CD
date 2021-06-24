@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-15
-Last Modified: 2021-06-20
+Last Modified: 2021-06-21
 	content: loading multiple images for chagne detection
 '''
 import os.path as osp
@@ -80,7 +80,8 @@ class LoadImagesFromFile(object):
         results['filename1'] = filename1
         results['filename2'] = filename2
         results['ori_filename'] = results['img_info']['filename']
-        results['img'] = torch.cat((img1, img2), dim=0)
+        # results['img'] = torch.cat((img1, img2), dim=0)
+        results['img'] = np.concatenate((img1, img2), axis=-1)
         results['img_shape'] = img1.shape
         results['ori_shape'] = img1.shape
         # Set initial values for default meta_keys
@@ -88,8 +89,8 @@ class LoadImagesFromFile(object):
         results['scale_factor'] = 1.0
         num_channels = 1 if len(img1.shape) < 3 else img1.shape[2]
         results['img_norm_cfg'] = dict(
-            mean=np.zeros(num_channels*2, dtype=np.float32),
-            std=np.ones(num_channels*2, dtype=np.float32),
+            mean=np.zeros(num_channels, dtype=np.float32),
+            std=np.ones(num_channels, dtype=np.float32),
             to_rgb=False)
 
         return results

@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-06-21
+	content: 
+'''
 from mmcv.utils import collect_env as collect_base_env
 from mmcv.utils import get_git_hash
 
