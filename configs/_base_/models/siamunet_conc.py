@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-18
-Last Modified: 2021-06-21
+Last Modified: 2021-06-29
 	content: 
 '''
 # model settings
@@ -46,7 +46,7 @@ model = dict(
         norm_cfg=norm_cfg,
         align_corners=False,
         loss_decode=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, class_weight=0.4)),
+            type='CrossEntropyLoss', use_sigmoid=False)),
     # model training and testing settings
     train_cfg=dict(),
     test_cfg=dict(mode='whole'))

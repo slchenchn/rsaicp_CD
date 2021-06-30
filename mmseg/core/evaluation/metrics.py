@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-06-29
+	content: 
+'''
 from collections import OrderedDict
 
 import mmcv
@@ -12,7 +18,7 @@ def f_score(precision, recall, beta=1):
         precision (float | torch.Tensor): The precision value.
         recall (float | torch.Tensor): The recall value.
         beta (int): Determines the weight of recall in the combined score.
-            Default: False.
+            Default: 1.
 
     Returns:
         [torch.tensor]: The f-score value.

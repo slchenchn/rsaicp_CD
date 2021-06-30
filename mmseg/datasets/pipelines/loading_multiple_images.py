@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-15
-Last Modified: 2021-06-21
+Last Modified: 2021-06-29
 	content: loading multiple images for chagne detection
 '''
 import os.path as osp
@@ -101,3 +101,19 @@ class LoadImagesFromFile(object):
         repr_str += f"color_type='{self.color_type}',"
         repr_str += f"imdecode_backend='{self.imdecode_backend}')"
         return repr_str
+
+
+# @PIPELINES.register_module()
+# class RGBAnaations2Index(object):
+#     ''' Map the anatation image in RGB (HxWxC) format to class index (HxW) format 
+    
+#     '''
+    
+#     def __init__(self):
+#         pass
+
+#     def __call__(self, results):
+#         '''Call function to map RGB anatation image to class index'''
+#         for key in results.get('seg_fileds', []):
+#             gt_seg = results[key]
+            

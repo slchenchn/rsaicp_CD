@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-14
-Last Modified: 2021-06-24
+Last Modified: 2021-06-29
 	content: 
 '''
 # dataset settings
@@ -39,14 +39,14 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=1,
+    samples_per_gpu=12,
+    workers_per_gpu=12,
     train=dict(
         type=dataset_type,
         data_root=data_root,
         img1_dir='train/Image1',
         img2_dir='train/Image2',
-        ann_dir='train/label',
+        ann_dir='train/label_index',
         pipeline=train_pipeline,
         if_visualize=False
         ),
@@ -55,7 +55,7 @@ data = dict(
         data_root=data_root,
         img1_dir='val/Image1',
         img2_dir='val/Image2',
-        ann_dir='val/label',
+        ann_dir='val/label_index',
         pipeline=test_pipeline),
     test=dict(
         # type=dataset_type,

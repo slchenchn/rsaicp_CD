@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-06-21
+Last Modified: 2021-06-29
 	content: 
 '''
 import argparse
@@ -134,7 +134,7 @@ def main():
         set_random_seed(args.seed, deterministic=args.deterministic)
     cfg.seed = args.seed
     meta['seed'] = args.seed
-    meta['exp_name'] = osp.basename(args.config)
+    meta['exp_name'] = osp.basename(args.config)    # experiment name
 
     model = build_segmentor(
         cfg.model,

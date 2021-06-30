@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-17
-Last Modified: 2021-06-20
+Last Modified: 2021-06-24
 	content: my adaption of siamese unet, remove softmax layer
 '''
 # Rodrigo Caye Daudt
@@ -187,6 +187,6 @@ class SiamUnet_conc(BaseSiamNet):
         x12d = self.do12d(F.relu(self.bn12d(self.conv12d(x1d))))
         x11d = self.conv11d(x12d)
 
-        return x11d
+        return [x11d]
 
     

@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-16
-Last Modified: 2021-06-21
+Last Modified: 2021-06-29
 	content: 
 '''
 import os.path as osp
@@ -104,3 +104,4 @@ class S2LookingDataset(CustomDatasetCD):
 
         result_files = self.results2img(results, imgfile_prefix, to_label_id)
         return result_files, tmp_dir
+        
