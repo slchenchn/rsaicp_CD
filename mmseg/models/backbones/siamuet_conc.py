@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-17
-Last Modified: 2021-06-24
+Last Modified: 2021-06-30
 	content: my adaption of siamese unet, remove softmax layer
 '''
 # Rodrigo Caye Daudt
@@ -21,83 +21,83 @@ from ..builder import BACKBONES
 class SiamUnet_conc(BaseSiamNet):
     """SiamUnet_conc segmentation network."""
 
-    def __init__(self, in_channels, out_channels):
+    def __init__(self, in_channels, out_channels, drop_p=0.2):
         super(SiamUnet_conc, self).__init__()
 
         self.in_channels = in_channels
 
         self.conv11 = nn.Conv2d(in_channels, 16, kernel_size=3, padding=1)
         self.bn11 = nn.BatchNorm2d(16)
-        self.do11 = nn.Dropout2d(p=0.2)
+        self.do11 = nn.Dropout2d(p=drop_p)
         self.conv12 = nn.Conv2d(16, 16, kernel_size=3, padding=1)
         self.bn12 = nn.BatchNorm2d(16)
-        self.do12 = nn.Dropout2d(p=0.2)
+        self.do12 = nn.Dropout2d(p=drop_p)
 
         self.conv21 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
         self.bn21 = nn.BatchNorm2d(32)
-        self.do21 = nn.Dropout2d(p=0.2)
+        self.do21 = nn.Dropout2d(p=drop_p)
         self.conv22 = nn.Conv2d(32, 32, kernel_size=3, padding=1)
         self.bn22 = nn.BatchNorm2d(32)
-        self.do22 = nn.Dropout2d(p=0.2)
+        self.do22 = nn.Dropout2d(p=drop_p)
 
         self.conv31 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
         self.bn31 = nn.BatchNorm2d(64)
-        self.do31 = nn.Dropout2d(p=0.2)
+        self.do31 = nn.Dropout2d(p=drop_p)
         self.conv32 = nn.Conv2d(64, 64, kernel_size=3, padding=1)
         self.bn32 = nn.BatchNorm2d(64)
-        self.do32 = nn.Dropout2d(p=0.2)
+        self.do32 = nn.Dropout2d(p=drop_p)
         self.conv33 = nn.Conv2d(64, 64, kernel_size=3, padding=1)
         self.bn33 = nn.BatchNorm2d(64)
-        self.do33 = nn.Dropout2d(p=0.2)
+        self.do33 = nn.Dropout2d(p=drop_p)
 
         self.conv41 = nn.Conv2d(64, 128, kernel_size=3, padding=1)
         self.bn41 = nn.BatchNorm2d(128)
-        self.do41 = nn.Dropout2d(p=0.2)
+        self.do41 = nn.Dropout2d(p=drop_p)
         self.conv42 = nn.Conv2d(128, 128, kernel_size=3, padding=1)
         self.bn42 = nn.BatchNorm2d(128)
-        self.do42 = nn.Dropout2d(p=0.2)
+        self.do42 = nn.Dropout2d(p=drop_p)
         self.conv43 = nn.Conv2d(128, 128, kernel_size=3, padding=1)
         self.bn43 = nn.BatchNorm2d(128)
-        self.do43 = nn.Dropout2d(p=0.2)
+        self.do43 = nn.Dropout2d(p=drop_p)
 
         self.upconv4 = nn.ConvTranspose2d(128, 128, kernel_size=3, padding=1, stride=2, output_padding=1)
 
         self.conv43d = nn.ConvTranspose2d(384, 128, kernel_size=3, padding=1)
         self.bn43d = nn.BatchNorm2d(128)
-        self.do43d = nn.Dropout2d(p=0.2)
+        self.do43d = nn.Dropout2d(p=drop_p)
         self.conv42d = nn.ConvTranspose2d(128, 128, kernel_size=3, padding=1)
         self.bn42d = nn.BatchNorm2d(128)
-        self.do42d = nn.Dropout2d(p=0.2)
+        self.do42d = nn.Dropout2d(p=drop_p)
         self.conv41d = nn.ConvTranspose2d(128, 64, kernel_size=3, padding=1)
         self.bn41d = nn.BatchNorm2d(64)
-        self.do41d = nn.Dropout2d(p=0.2)
+        self.do41d = nn.Dropout2d(p=drop_p)
 
         self.upconv3 = nn.ConvTranspose2d(64, 64, kernel_size=3, padding=1, stride=2, output_padding=1)
 
         self.conv33d = nn.ConvTranspose2d(192, 64, kernel_size=3, padding=1)
         self.bn33d = nn.BatchNorm2d(64)
-        self.do33d = nn.Dropout2d(p=0.2)
+        self.do33d = nn.Dropout2d(p=drop_p)
         self.conv32d = nn.ConvTranspose2d(64, 64, kernel_size=3, padding=1)
         self.bn32d = nn.BatchNorm2d(64)
-        self.do32d = nn.Dropout2d(p=0.2)
+        self.do32d = nn.Dropout2d(p=drop_p)
         self.conv31d = nn.ConvTranspose2d(64, 32, kernel_size=3, padding=1)
         self.bn31d = nn.BatchNorm2d(32)
-        self.do31d = nn.Dropout2d(p=0.2)
+        self.do31d = nn.Dropout2d(p=drop_p)
 
         self.upconv2 = nn.ConvTranspose2d(32, 32, kernel_size=3, padding=1, stride=2, output_padding=1)
 
         self.conv22d = nn.ConvTranspose2d(96, 32, kernel_size=3, padding=1)
         self.bn22d = nn.BatchNorm2d(32)
-        self.do22d = nn.Dropout2d(p=0.2)
+        self.do22d = nn.Dropout2d(p=drop_p)
         self.conv21d = nn.ConvTranspose2d(32, 16, kernel_size=3, padding=1)
         self.bn21d = nn.BatchNorm2d(16)
-        self.do21d = nn.Dropout2d(p=0.2)
+        self.do21d = nn.Dropout2d(p=drop_p)
 
         self.upconv1 = nn.ConvTranspose2d(16, 16, kernel_size=3, padding=1, stride=2, output_padding=1)
 
         self.conv12d = nn.ConvTranspose2d(48, 16, kernel_size=3, padding=1)
         self.bn12d = nn.BatchNorm2d(16)
-        self.do12d = nn.Dropout2d(p=0.2)
+        self.do12d = nn.Dropout2d(p=drop_p)
 
         if out_channels is None:
             out_channels = 16

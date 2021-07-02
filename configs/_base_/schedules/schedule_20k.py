@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-06-30
+	content: 
+'''
 # optimizer
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()

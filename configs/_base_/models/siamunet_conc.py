@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-18
-Last Modified: 2021-06-29
+Last Modified: 2021-06-30
 	content: 
 '''
 # model settings
@@ -13,6 +13,8 @@ model = dict(
         type='SiamUnet_conc',
         in_channels = 3,
         out_channels = 16,
+		drop_p = 0,
+        
         # depth=50,
         # num_stages=4,
         # out_indices=(0, 1, 2, 3),

@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-07-01
+	content: modified to accomodate change detection scheme
+'''
 import os.path as osp
 import pickle
 import shutil
@@ -7,7 +13,8 @@ import mmcv
 import numpy as np
 import torch
 import torch.distributed as dist
-from mmcv.image import tensor2imgs
+# from mmcv.image import tensor2imgs
+from mmseg.misc import tensor2imgsCD
 from mmcv.runner import get_dist_info
 
 
@@ -65,7 +72,7 @@ def single_gpu_test(model,
         if show or out_dir:
             img_tensor = data['img'][0]
             img_metas = data['img_metas'][0].data[0]
-            imgs = tensor2imgs(img_tensor, **img_metas[0]['img_norm_cfg'])
+            imgs = tensor2imgsCD(img_tensor, **img_metas[0]['img_norm_cfg'])
             assert len(imgs) == len(img_metas)
 
             for img, img_meta in zip(imgs, img_metas):

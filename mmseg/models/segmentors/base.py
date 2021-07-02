@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-07-01
+	content: 
+'''
 import logging
 import warnings
 from abc import ABCMeta, abstractmethod
@@ -256,6 +262,8 @@ class BaseSegmentor(nn.Module):
         # convert to BGR
         color_seg = color_seg[..., ::-1]
 
+        if img.shape[-1]%2 == 0:
+            img = img[..., :img.shape[-1]//2]
         img = img * (1 - opacity) + color_seg * opacity
         img = img.astype(np.uint8)
         # if out_file specified, do not show image in window

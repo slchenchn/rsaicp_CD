@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-07-02
+	content: 
+'''
 import argparse
 import os
 
@@ -68,8 +74,9 @@ def parse_args():
     return args
 
 
-def main():
-    args = parse_args()
+def main(args=None):
+    if args is None:
+        args = parse_args()
 
     assert args.out or args.eval or args.format_only or args.show \
         or args.show_dir, \

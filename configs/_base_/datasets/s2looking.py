@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-14
-Last Modified: 2021-06-29
+Last Modified: 2021-07-01
 	content: 
 '''
 # dataset settings
@@ -16,8 +16,8 @@ train_pipeline = [
     dict(type='LoadAnnotations', reduce_zero_label=False),
     dict(type='Resize', img_scale=img_scale, ratio_range=(0.5, 2.0)),
     dict(type='RandomCrop', crop_size=crop_size, cat_max_ratio=0.75),
-    dict(type='RandomFlip', prob=0.5),
-    dict(type='PhotoMetricDistortionMultiImages'),
+    dict(type='RandomFlip', prob=0.0),
+    # dict(type='PhotoMetricDistortionMultiImages'),
     dict(type='NormalizeMultiImages', **img_norm_cfg),
     dict(type='Pad', size=crop_size, pad_val=0, seg_pad_val=0),
     dict(type='DefaultFormatBundle'),
@@ -27,12 +27,12 @@ test_pipeline = [
     dict(type='LoadImagesFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(2048, 512),
+        img_scale=img_scale,
         # img_ratios=[0.5, 0.75, 1.0, 1.25, 1.5, 1.75],
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
-            dict(type='RandomFlip'),
+            # dict(type='RandomFlip'),
             dict(type='NormalizeMultiImages', **img_norm_cfg),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img']),
@@ -56,12 +56,14 @@ data = dict(
         img1_dir='val/Image1',
         img2_dir='val/Image2',
         ann_dir='val/label_index',
-        pipeline=test_pipeline),
+        pipeline=test_pipeline
+        ),
     test=dict(
-        # type=dataset_type,
-        # data_root=data_root,
-        # img_dir='images/validation',
-        # ann_dir='annotations/validation',
-        # pipeline=test_pipeline
-        )
-        )
+        type=dataset_type,
+        data_root=data_root,
+        img1_dir='val/Image1',
+        img2_dir='val/Image2',
+        ann_dir='val/label_index',
+        pipeline=test_pipeline
+        ),
+    )
