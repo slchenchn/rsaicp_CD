@@ -35,8 +35,8 @@ RUN mkdir /work
 # RUN git clone https://github.com/open-mmlab/mmsegmenation.git /mmsegmentation
 # WORKDIR /mmsegmentation
 COPY /home/csl/code/rsaicp_CD /work
-RUN cd /work/
-RUN pip install -r requirements/build.txt
-RUN pip install --no-cache-dir -e .
+# RUN cd /work/
+# RUN pip install -r requirements/build.txt
+# RUN pip install --no-cache-dir -e .
 
 CMD ["python3", "-u", "/work/main.py"]

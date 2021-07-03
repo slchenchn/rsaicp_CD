@@ -17,14 +17,14 @@ from tools.label2rsaicp import label2rsaicp
 def parse_args():
     parser = argparse.ArgumentParser(
         description='mmseg test (and eval) a model')
-    parser.add_argument('config', help='test config file path', default='configs/siamunet/unet_512x512_20k_s2looking_rsaicp.py')
-    parser.add_argument('checkpoint', help='checkpoint file')
+    parser.add_argument('--config', help='test config file path', default='configs/siamunet/unet_512x512_20k_s2looking.py')
+    parser.add_argument('--checkpoint', help='checkpoint file',
+            default='work_dirs/unet_512x512_20k_s2looking/20210701_142537/latest.pth')
     parser.add_argument(
         '--aug-test', action='store_true', help='Use Flip and Multi scale aug')
         
     # 天智杯官方定义的数据集路径和输出路径
     parser.add_argument("--input_dir", default='/input_path', help="input path", type=str)
-    parser.add_argument("--output_dir", default='/output_path', help="output path", type=str)
 
     parser.add_argument('--out', help='output result file in pickle format')
     parser.add_argument(
@@ -41,8 +41,8 @@ def parse_args():
         ' for generic datasets, and "cityscapes" for Cityscapes')
     parser.add_argument('--show', action='store_true', help='show results')
     parser.add_argument(
-        '--show-dir', help='directory where painted images will be saved',
-        default='show_dir'
+        '--show-dir',"--output_dir", help='directory where painted images will be saved',
+        default='/output_path'
         )
     parser.add_argument(
         '--gpu-collect',
@@ -57,6 +57,7 @@ def parse_args():
                 # 'data.test.data_root': '/input_path',
                 'data.test.img1_dir': 'Image1',
                 'data.test.img2_dir': 'Image2',
+                'data.workers_per_gpu': 1,
                 })
     parser.add_argument(
         '--eval-options',
@@ -71,7 +72,7 @@ def parse_args():
     parser.add_argument(
         '--opacity',
         type=float,
-        default=0.5,
+        default=1,
         help='Opacity of painted segmentation map. In (0, 1] range.')
     parser.add_argument('--local_rank', type=int, default=0)
     args = parser.parse_args()
@@ -84,7 +85,7 @@ if __name__ == '__main__':
     # arguments and environments setting
     start_time = time.time()
     args = parse_args()
-    args.options.update(input_path=args.input_path)
+    args.options.update({'data.test.data_root':args.input_dir})
 
     torch.backends.cudnn.benchmark = True
     os.environ['CUDA_VISIBLE_DEVICES'] = '0'
@@ -93,6 +94,6 @@ if __name__ == '__main__':
     main(args)
 
     # convert label format
-    label2rsaicp(args.output_path, args.output_path)
+    label2rsaicp(args.show_dir, args.show_dir)
     
     print('total time:', time.time() - start_time)
