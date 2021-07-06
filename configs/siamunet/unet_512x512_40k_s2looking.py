@@ -26,8 +26,8 @@ optimizer = dict(_delete_=True,
 			# momentum=0.9, weight_decay=0.0000
 			)
 
-lr_config = dict(_delete_=True,
-				policy='fixed')
+# lr_config = dict(_delete_=True,
+				# policy='fixed')
 # lr_config = dict(policy='poly', power=0.9, min_lr=1e-2, by_epoch=False)
 
 evaluation = dict(metric=['mFscore', 'mFscoreCD'])
