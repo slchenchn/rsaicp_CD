@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-06-18
+Last Modified: 2021-07-06
 	content: 
 '''
 from .cgnet import CGNet
@@ -14,7 +14,6 @@ from .resnet import ResNet, ResNetV1c, ResNetV1d
 from .resnext import ResNeXt
 from .unet import UNet
 from .vit import VisionTransformer
-from .siamuet_conc import SiamUnet_conc
 
 # __all__ = [
 #     'ResNet', 'ResNetV1c', 'ResNetV1d', 'ResNeXt', 'HRNet', 'FastSCNN',

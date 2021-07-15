@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-07-02
-Last Modified: 2021-07-02
+Last Modified: 2021-07-09
 	content: 
 '''
 import time
@@ -17,9 +17,9 @@ from tools.label2rsaicp import label2rsaicp
 def parse_args():
     parser = argparse.ArgumentParser(
         description='mmseg test (and eval) a model')
-    parser.add_argument('--config', help='test config file path', default='configs/siamunet/unet_512x512_20k_s2looking.py')
+    parser.add_argument('--config', help='test config file path', default='configs/siam_hrnet/siam_hr18_512x512_40k_s2looking.py')
     parser.add_argument('--checkpoint', help='checkpoint file',
-            default='work_dirs/unet_512x512_20k_s2looking/20210701_142537/latest.pth')
+            default='work_dirs/siam_hr18_512x512_40k_s2looking/20210708_092150/latest.pth')
     parser.add_argument(
         '--aug-test', action='store_true', help='Use Flip and Multi scale aug')
         

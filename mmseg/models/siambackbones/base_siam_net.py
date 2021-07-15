@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-20
-Last Modified: 2021-06-21
+Last Modified: 2021-07-06
 	content: 
 '''
 from abc import ABCMeta, abstractmethod
@@ -15,7 +15,7 @@ from mmcv.utils.parrots_wrapper import _BatchNorm
 from mmseg.utils import split_images
 
 class BaseSiamNet(nn.Module):
-    ''' Base class for siamese class '''
+    ''' Base class for siamese model, which requires two inputs'''
 
     __metaclass__ = ABCMeta
 

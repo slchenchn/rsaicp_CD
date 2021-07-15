@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-18
-Last Modified: 2021-07-05
+Last Modified: 2021-07-07
 	content: 
 '''
 _base_ = ['../_base_/models/siamunet_conc.py', 
@@ -20,14 +20,18 @@ model=dict(
 	)
 )
 
-optimizer = dict(_delete_=True,
-				type='Adam', 
-				lr=1e-3, 
-			# momentum=0.9, weight_decay=0.0000
-			)
+# optimizer = dict(_delete_=True,
+# 				type='Adam', 
+# 				lr=1e-3, 
+# 			# momentum=0.9, weight_decay=0.0000
+# 			)
 
 # lr_config = dict(_delete_=True,
 				# policy='fixed')
 # lr_config = dict(policy='poly', power=0.9, min_lr=1e-2, by_epoch=False)
+
+optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
+
+lr_config = dict(policy='poly', power=0.9, min_lr=1e-4, by_epoch=False)
 
 evaluation = dict(metric=['mFscore', 'mFscoreCD'])
