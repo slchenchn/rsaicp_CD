@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-21
-Last Modified: 2021-06-21
+Last Modified: 2021-08-17
 	content: 
 '''
 import mmcv
@@ -9,6 +9,8 @@ import numpy as np
 from mmcv.utils import deprecated_api_warning, is_tuple_of
 from numpy import random
 from mmseg.utils import split_images
+from PIL import ImageFilter
+from PIL import Image
 
 from ..builder import PIPELINES
 from .transforms import PhotoMetricDistortion, Normalize
@@ -191,3 +193,31 @@ class NormalizeMultiImages(Normalize):
         results['img_norm_cfg'] = img_norm_cfg
 
         return results
+
+    
+@PIPELINES.register_module
+class GaussianBlur(object):
+    """Gaussian blur augmentation in SimCLR https://arxiv.org/abs/2002.05709."""
+
+    def __init__(self, sigma_min=0, sigma_max=1):
+        self.sigma_min = sigma_min
+        self.sigma_max = sigma_max
+
+    def __call__(self, results):
+        img = results['img']
+        img1, img2 = split_images(img)
+
+        img_result = []
+        for img in (img1, img2):
+            img = Image.fromarray(img)
+            sigma = np.random.uniform(self.sigma_min, self.sigma_max)
+            img = img.filter(ImageFilter.GaussianBlur(radius=sigma))
+            img_result.append(img)
+
+        results['img'] = np.concatenate(img_result, axis=-1)
+        
+        return results
+
+    def __repr__(self):
+        repr_str = self.__class__.__name__
+        return repr_str
