@@ -65,9 +65,10 @@ data = dict(
     test=dict(
         type=dataset_type,
         data_root=data_root,
-        img1_dir='val/Image1',
-        img2_dir='val/Image2',
+        img1_dir='Image1',
+        img2_dir='Image2',
         # ann_dir='val/label_index',
+        ann_dir='label_index',
         pipeline=test_pipeline
         ),
     )

@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-07-02
-Last Modified: 2021-07-09
+Last Modified: 2021-08-17
 	content: 
 '''
 import time
@@ -17,9 +17,9 @@ from tools.label2rsaicp import label2rsaicp
 def parse_args():
     parser = argparse.ArgumentParser(
         description='mmseg test (and eval) a model')
-    parser.add_argument('--config', help='test config file path', default='configs/siam_hrnet/siam_hr18_512x512_40k_s2looking.py')
+    parser.add_argument('--config', help='test config file path', default='configs/bit/bit_pos_s2_dd8_512x512_80k_S2Looking.py')
     parser.add_argument('--checkpoint', help='checkpoint file',
-            default='work_dirs/siam_hr18_512x512_40k_s2looking/20210708_092150/latest.pth')
+            default='work_dirs/bit_pos_s2_dd8_512x512_80k_S2Looking/20210817_120553/latest.pth')
     parser.add_argument(
         '--aug-test', action='store_true', help='Use Flip and Multi scale aug')
         
@@ -37,6 +37,7 @@ def parse_args():
         '--eval',
         type=str,
         nargs='+',
+        # default=['mIoU', 'mFscoreCD'],
         help='evaluation metrics, which depends on the dataset, e.g., "mIoU"'
         ' for generic datasets, and "cityscapes" for Cityscapes')
     parser.add_argument('--show', action='store_true', help='show results')
@@ -91,6 +92,7 @@ if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     # inferrence 
+    print(f'config: {args.config}')
     main(args)
 
     # convert label format
