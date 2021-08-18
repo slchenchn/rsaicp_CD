@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-06-13
+Last Modified: 2021-08-18
+	content: 
+'''
 import warnings
 
 from mmcv.cnn import MODELS as MMCV_MODELS
@@ -10,7 +16,12 @@ NECKS = MODELS
 HEADS = MODELS
 LOSSES = MODELS
 SEGMENTORS = MODELS
+POST_PROCESS = MODELS
 
+
+def build_post_process(cfg):
+    ''' build post processing layer between decode_head and loss '''
+    return POST_PROCESS.build(cfg)
 
 def build_backbone(cfg):
     """Build backbone."""

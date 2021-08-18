@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-07-06
+Last Modified: 2021-08-18
 	content: 
 '''
 from .backbones import *  # noqa: F401,F403
@@ -12,6 +12,7 @@ from .losses import *  # noqa: F401,F403
 from .necks import *  # noqa: F401,F403
 from .segmentors import *  # noqa: F401,F403
 from .siambackbones import *
+from .post_process import *
 
 # __all__ = [
 #     'BACKBONES', 'HEADS', 'LOSSES', 'SEGMENTORS', 'build_backbone',

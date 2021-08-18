@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-07-06
-Last Modified: 2021-07-08
+Last Modified: 2021-08-18
 	content: 
 '''
 # model settings
@@ -40,7 +40,7 @@ model = dict(
                 num_blocks=(4, 4, 4, 4),
                 num_channels=(18, 36, 72, 144)))),
     decode_head=dict(
-        type='FCNHead',
+        type='NewFCNHead',
         in_channels=[36, 72, 144, 288],
         in_index=(0, 1, 2, 3),
         channels=sum([36, 72, 144, 288]),
