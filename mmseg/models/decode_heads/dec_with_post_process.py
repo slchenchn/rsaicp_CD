@@ -4,6 +4,9 @@ Created Date: 2021-08-18
 Last Modified: 2021-08-18
 	content: 
 '''
+
+from torch import nn
+
 from ..builder import build_post_process
 from .decode_head import BaseDecodeHead
 
@@ -12,9 +15,13 @@ class BaseDecWithPostProcess(BaseDecodeHead):
     ''' Base class for decode head with post processing layer between original decode head the loss
     '''
     def __init__(self, *args, **kargs):
-        post_process_args = kargs.pop('post_process')
+        post_process_args = kargs.pop('post_process', None)
         super().__init__(*args, **kargs)
-        self.post_process = build_post_process(post_process_args)
+
+        if post_process_args is None:
+            self.post_process = nn.Identity()
+        else:
+            self.post_process = build_post_process(post_process_args)
 
     def forward_train(self, inputs, img_metas, gt_semantic_seg, train_cfg):
         """Forward function for training.
