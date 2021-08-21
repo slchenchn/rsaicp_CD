@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-17
+Last Modified: 2021-08-21
 	content: 
 '''
 from .cgnet import CGNet
@@ -14,6 +14,7 @@ from .resnet import ResNet, ResNetV1c, ResNetV1d
 from .resnext import ResNeXt
 from .unet import UNet
 from .vit import VisionTransformer
+from . mit import MixVisionTransformer
 
 
 from .models import BASE_Transformer

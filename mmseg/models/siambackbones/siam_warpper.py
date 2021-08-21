@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-07-06
-Last Modified: 2021-07-07
+Last Modified: 2021-08-21
 	content: 
 '''
 
@@ -12,6 +12,7 @@ from mmcv.cnn import (ConvModule, build_conv_layer, build_norm_layer,
                       constant_init, kaiming_init)
 from mmcv.runner import load_checkpoint
 from mmcv.utils.parrots_wrapper import _BatchNorm
+from mmcv.utils import print_log
 
 from mmseg.utils import get_root_logger, split_images
 from .. import builder
@@ -30,8 +31,10 @@ class SiamBackboneWrapper(nn.Module):
         kargs.update(type=kargs.pop('ori_type'))
         self.backbone = builder.build_backbone(kargs)
 
-    def init_weights(self, pretrained=None):
-        self.backbone.init_weights(pretrained)
+        print_log(f'siamese backbone with `{merge_method}` merge method', 'mmseg')
+
+    def init_weights(self, *args, **kargs):
+        self.backbone.init_weights(*args, **kargs)
 
     def forward(self, x):
         x1, x2 = split_images(x)

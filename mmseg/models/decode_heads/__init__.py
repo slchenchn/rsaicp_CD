@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-17
+Last Modified: 2021-08-21
 	content: 
 '''
 from .ann_head import ANNHead
@@ -26,6 +26,7 @@ from .sep_aspp_head import DepthwiseSeparableASPPHead
 from .sep_fcn_head import DepthwiseSeparableFCNHead
 from .uper_head import UPerHead
 from .new_fcn_head import NewFCNHead
+from .segformer_head import SegformerHead
 
 # __all__ = [
 #     'FCNHead', 'PSPHead', 'ASPPHead', 'PSAHead', 'NLHead', 'GCHead', 'CCHead',

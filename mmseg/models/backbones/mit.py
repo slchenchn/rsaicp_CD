@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-08-19
+Last Modified: 2021-08-21
+	content: 
+'''
 # Copyright (c) OpenMMLab. All rights reserved.
 import math
 import warnings
@@ -371,7 +377,7 @@ class MixVisionTransformer(BaseModule):
             self.layers.append(ModuleList([patch_embed, layer, norm]))
             cur += num_layer
 
-    def init_weights(self):
+    def init_weights(self, pretrained):
         if self.pretrained is None:
             for m in self.modules():
                 if isinstance(m, nn.Linear):
