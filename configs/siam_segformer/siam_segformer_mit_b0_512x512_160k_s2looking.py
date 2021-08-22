@@ -37,8 +37,8 @@ lr_config = dict(
     by_epoch=False)
 
 data = dict(
-    samples_per_gpu=16,
-    workers_per_gpu=16,
+    samples_per_gpu=8,
+    workers_per_gpu=8,
     )
 
 evaluation = dict(metric=['mFscore', 'mFscoreCD'])
