@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-08-21
+Last Modified: 2021-08-22
+	content: 
+'''
 # Copyright (c) OpenMMLab. All rights reserved.
 def nlc_to_nchw(x, hw_shape):
     """Convert [N, L, C] shape tensor to [N, C, H, W] shape tensor.
@@ -13,7 +19,7 @@ def nlc_to_nchw(x, hw_shape):
     assert len(x.shape) == 3
     B, L, C = x.shape
     assert L == H * W, 'The seq_len doesn\'t match H, W'
-    return x.transpose(1, 2).reshape(B, C, H, W)
+    return x.transpose(1, 2).contiguous().reshape(B, C, H, W)
 
 
 def nchw_to_nlc(x):

@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-08-19
-Last Modified: 2021-08-21
+Last Modified: 2021-08-22
 	content: 
 '''
 # model settings
@@ -9,8 +9,8 @@ norm_cfg = dict(type='BN', requires_grad=True)
 # norm_cfg = dict(type='SyncBN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
+    pretrained=None,
     backbone=dict(
-        pretrained='checkpoints/segformer_mit-b0_512x512_160k_ade20k_20210726_101530-8ffa8fda.pth',
         type='SiamBackboneWrapper',
         merge_method='sub',
         ori_type='MixVisionTransformer',
