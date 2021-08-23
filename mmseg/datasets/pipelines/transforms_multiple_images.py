@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-21
-Last Modified: 2021-08-17
+Last Modified: 2021-08-23
 	content: 
 '''
 import mmcv
@@ -195,7 +195,7 @@ class NormalizeMultiImages(Normalize):
         return results
 
     
-@PIPELINES.register_module
+@PIPELINES.register_module()
 class GaussianBlur(object):
     """Gaussian blur augmentation in SimCLR https://arxiv.org/abs/2002.05709."""
 
