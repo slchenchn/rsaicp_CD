@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-08-24
+Last Modified: 2021-08-25
+	content: 
+'''
 # Copyright (c) OpenMMLab. All rights reserved.
 import warnings
 from copy import deepcopy
@@ -146,7 +152,7 @@ class WindowMSA(BaseModule):
 
         self.softmax = nn.Softmax(dim=-1)
 
-    def init_weights(self):
+    def init_weights(self, pretrained=None):
         trunc_normal_init(self.relative_position_bias_table, std=0.02)
 
     def forward(self, x, mask=None):
@@ -689,7 +695,7 @@ class SwinTransformer(BaseModule):
             layer_name = f'norm{i}'
             self.add_module(layer_name, layer)
 
-    def init_weights(self):
+    def init_weights(self, pretrained=None):
         if self.pretrained is None:
             super().init_weights()
             if self.use_abs_pos_embed:

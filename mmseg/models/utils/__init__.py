@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-21
+Last Modified: 2021-08-25
 	content: 
 '''
 from .drop import DropPath
@@ -14,6 +14,7 @@ from .up_conv_block import UpConvBlock
 from .weight_init import trunc_normal_
 
 from .embed import PatchEmbed
+from .ckpt_convert import swin_convert, vit_convert
 
 from .shape_convert import nchw_to_nlc, nlc_to_nchw
 

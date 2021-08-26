@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-21
+Last Modified: 2021-08-25
 	content: 
 '''
 from .cgnet import CGNet
@@ -16,7 +16,7 @@ from .unet import UNet
 from .vit import VisionTransformer
 from . mit import MixVisionTransformer
 
-
+from .swin import SwinTransformer
 from .models import BASE_Transformer
 
 # __all__ = [

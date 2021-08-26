@@ -1,15 +1,17 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-18
+Last Modified: 2021-08-25
 	content: 
 '''
 import warnings
 
 from mmcv.cnn import MODELS as MMCV_MODELS
 from mmcv.utils import Registry
+from mmcv.cnn.bricks.registry import ATTENTION as MMCV_ATTENTION
 
 MODELS = Registry('models', parent=MMCV_MODELS)
+ATTENTION = Registry('attention', parent=MMCV_ATTENTION)
 
 BACKBONES = MODELS
 NECKS = MODELS
