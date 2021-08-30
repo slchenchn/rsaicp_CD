@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-14
-Last Modified: 2021-08-19
+Last Modified: 2021-08-30
 	content: 
 '''
 # dataset settings
@@ -40,7 +40,8 @@ test_pipeline = [
             dict(type='NormalizeMultiImages', **img_norm_cfg),
             dict(type='ImageToTensor', keys=['img']),
             dict(type='Collect', keys=['img']),
-        ])
+        ]
+    )
 ]
 data = dict(
     samples_per_gpu=12,

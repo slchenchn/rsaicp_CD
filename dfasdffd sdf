@@ -1,0 +1,137 @@
+[33mcommit 269882744832d7ddc922a31bff67b43eb7e6cae9[m
+Author: chenda <1106982578@qq.com>
+Date:   Mon Aug 30 11:02:43 2021 +0800
+
+    add swin
+
+[33mcommit d4007bdc933280c93487933c770f1f489cdc36d8[m
+Author: chenda <1106982578@qq.com>
+Date:   Thu Aug 26 10:43:57 2021 +0800
+
+    add swin
+
+[33mcommit 0212c2d72ae3eed2af60fd8a29da1f0d1ff3c216[m
+Author: chenda <1106982578@qq.com>
+Date:   Wed Aug 25 18:55:14 2021 +0800
+
+    revise segformer, add swin
+
+[33mcommit 368abed3d655498b72469ef2ad81d129ab1e3c42[m
+Author: chenda <1106982578@qq.com>
+Date:   Mon Aug 23 15:49:55 2021 +0800
+
+    add seformer b4
+
+[33mcommit 32a2dcb3147f0c8ca5a6871c9f20f60bffa834f7[m
+Author: chenda <1106982578@qq.com>
+Date:   Sun Aug 22 19:59:25 2021 +0800
+
+    none
+
+[33mcommit 0d1343e3e1ab2bf494afd53d6986b176fb950bf9[m
+Author: chenda <1106982578@qq.com>
+Date:   Sun Aug 22 19:57:16 2021 +0800
+
+    none
+
+[33mcommit d51bdf72a7c8c201d4bc9907dd9cf5d28801a1f7[m
+Author: chenda <1106982578@qq.com>
+Date:   Sun Aug 22 19:41:05 2021 +0800
+
+    nonoe
+
+[33mcommit 03ced5353202c36ae7d97ba24feeeb3659195cb8[m
+Author: chenda <1106982578@qq.com>
+Date:   Sun Aug 22 18:24:07 2021 +0800
+
+    revise segformer
+
+[33mcommit 2ce4b6f34d33be4e43ad7e0006103886ef74e091[m
+Author: chenda <1106982578@qq.com>
+Date:   Sun Aug 22 16:17:06 2021 +0800
+
+    revise segformer
+
+[33mcommit e998de01bce8d008db5b6dd811b14276ddaa946f[m
+Author: chenda <1106982578@qq.com>
+Date:   Sat Aug 21 10:36:50 2021 +0800
+
+    add vanilla siamese seg former
+
+[33mcommit dee674e9be209224ac82a5ccacc71bc628252eb3[m
+Author: chenda <1106982578@qq.com>
+Date:   Fri Aug 20 09:42:38 2021 +0800
+
+    add segformer
+
+[33mcommit e151fb12ac012e0b7c3bb7f952d01af4fb97d438[m
+Author: chenda <1106982578@qq.com>
+Date:   Wed Aug 18 15:51:09 2021 +0800
+
+    add decode_head with post processing
+
+[33mcommit 102f512deec5b6435cc39680babf3bf4fa862ee6[m
+Author: chenda <1106982578@qq.com>
+Date:   Wed Aug 18 10:32:42 2021 +0800
+
+    none
+
+[33mcommit f972797ff88f40ac1aede43811032d33e699bb62[m
+Author: chenda <1106982578@qq.com>
+Date:   Tue Aug 17 12:27:35 2021 +0800
+
+    add BIT
+
+[33mcommit de07e3bbbb0727022b6810acbcb8368c326e1f26[m
+Author: chenda <1106982578@qq.com>
+Date:   Thu Jul 15 14:48:14 2021 +0800
+
+    none
+
+[33mcommit 20c6da8fdf996605458d25680d523a1f95c9b678[m
+Author: chenda <1106982578@qq.com>
+Date:   Tue Jul 6 14:41:53 2021 +0800
+
+    none
+
+[33mcommit 44a34c0db0ebece3d9be984654717f1c5a493a99[m
+Author: chenda <1106982578@qq.com>
+Date:   Mon Jul 5 15:02:38 2021 +0800
+
+    none
+
+[33mcommit 8ca93dbc26598854800518018e4cad0001160415[m
+Author: chenda <1106982578@qq.com>
+Date:   Mon Jul 5 15:01:42 2021 +0800
+
+    none
+
+[33mcommit 84702e593b50ad021f52b3db75ea48180dbdbb6d[m
+Author: chenda <1106982578@qq.com>
+Date:   Sat Jul 3 19:04:18 2021 +0800
+
+    one
+
+[33mcommit dbfe184a535648657106efab4613d206379a0fc2[m
+Author: chenda <1106982578@qq.com>
+Date:   Fri Jul 2 17:18:22 2021 +0800
+
+    none
+
+[33mcommit 186b99bc343e5230bcabaae54812237bcec767a8[m
+Author: chenda <1106982578@qq.com>
+Date:   Wed Jun 30 11:57:04 2021 +0800
+
+    none
+
+[33mcommit 1f673aad2fbb929431f1ff3f2e4b74fc47ac870c[m
+Author: chenda <1106982578@qq.com>
+Date:   Thu Jun 24 19:53:44 2021 +0800
+
+    none
+
+[33mcommit 525b1d762ba6c30676df476b2210bb45a3fde29d[m
+Author: chenda <1106982578@qq.com>
+Date:   Mon Jun 21 12:19:25 2021 +0800
+
+    none
