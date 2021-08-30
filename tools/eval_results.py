@@ -15,6 +15,37 @@ import argparse
 import numpy as np
 from glob import glob
 
+from mmseg.core import eval_metrics
+from mmseg.datasets import build_dataset
+
+
+def eval_metrics_offline(cfg,
+                        pred_folder, 
+                        palette, 
+                        metrics=['mFscoreCD', 'mFscore']
+                        ):
+    """Calculate evaluation metrics from offline gt and prediction images
+    Args:
+        
+    """
+
+    assert osp.isdir(pred_folder)
+
+    preds = []
+    pred_paths = glob(osp.join(pred_folder, '*.png'))
+    for pred_path in pred_paths:
+        pred_rgb = read_label_png(pred_path)
+        pred = np.empty(shape=pred_rgb.shape[:-1])
+        for idx, color in enumerate(palette):
+            color = np.array(color)[None, None, ...]
+            pred[(pred_rgb==color).all(axis=2)] = idx
+
+        preds.append(pred)
+    
+
+    dataset = build_dataset(cfg.data.train)
+    dataset.evaluate(preds, metric=metrics)
+
 
 def read_label_png(src_path:str)->np.ndarray:
     '''读取 label图像的信息，这个文件的格式比较复杂，直接读取会有问题，需要特殊处理
@@ -81,6 +112,11 @@ def show_confusion_pixels_on_image(pred_folder, gt_folder, palette, out_folder):
 
 
 if __name__ == '__main__':
-    args = get_args()
     PALETTE = [[0, 0, 0], [0, 0, 255], [255, 0, 0], [255, 0, 255]]
-    show_confusion_pixels_on_image(args.prediction_folder, args.gt_folder, PALETTE, args.out_folder)
+
+    # 
+    
+
+
+    # args = get_args()
+    # show_confusion_pixels_on_image(args.prediction_folder, args.gt_folder, PALETTE, args.out_folder)
