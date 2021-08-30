@@ -1,12 +1,12 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-08-24
-Last Modified: 2021-08-25
+Last Modified: 2021-08-26
 	content: 
 '''
 # model settings
 norm_cfg = dict(type='SyncBN', requires_grad=True)
-norm_cfg = dict(type='BN', requires_grad=True)
+# norm_cfg = dict(type='BN', requires_grad=True)
 backbone_norm_cfg = dict(type='LN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
