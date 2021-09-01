@@ -14,7 +14,8 @@ from mmcv.runner import load_checkpoint
 from mmcv.utils.parrots_wrapper import _BatchNorm
 from mmcv.utils import print_log
 
-from mmseg.utils import get_root_logger, split_images, split_batches
+from mmseg.utils import (get_root_logger, split_images, split_batches,
+                        merge_batches)
 from .. import builder
 from ..builder import BACKBONES
 
@@ -57,6 +58,8 @@ class SiamBackboneWrapper(nn.Module):
         #     out.append(sub_out)
         
         ''' code of v2 '''
+        x1, x2 = split_images(x)
+        x = merge_batches(x1, x2)
         out = self.backbone(x)
         new_out = []
         for sub_out in out:

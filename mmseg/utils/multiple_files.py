@@ -24,8 +24,16 @@ def split_batches(x: Tensor):
     x1 = x[0:batch_size, ...]
     x2 = x[batch_size: , ...]
     return x1, x2
-    
-    
+
+
+def merge_batches(x1: Tensor, x2: Tensor):
+    ''' merge two batchs each contains B images into a 2*B batch of images in order to adapt to MMsegmentation '''
+
+    assert x1.ndim == 4 and x2.ndim == 4,   f'expect x1 and x2 to have 4 \
+                dimensions, but got x1.dim: {x1.ndim}, x2.dim: {x2.ndim}'
+    return torch.cat((x1, x2), dim=0)
+
+
 def split_images(x: Tensor):
     ''' Split a 2*c channels image into two c channels images, in order to adapt to MMsegmentation '''
 
