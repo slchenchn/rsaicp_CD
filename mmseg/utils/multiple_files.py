@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-21
-Last Modified: 2021-06-24
+Last Modified: 2021-09-01
 	content: 
 '''
 
@@ -15,7 +15,18 @@ from mmcv.parallel.data_container import DataContainer
 
 from mylib import image_utils as iu
 
-def split_images(x):
+
+def split_batches(x: Tensor):
+    ''' Split a 2*B batch of images into two B images per batch, in order to adapt to MMsegmentation '''
+
+    assert x.ndim == 4, f'expect to have 4 dimensions, but got {x.ndim}'
+    batch_size = x.shape[0] // 2
+    x1 = x[0:batch_size, ...]
+    x2 = x[batch_size: , ...]
+    return x1, x2
+    
+    
+def split_images(x: Tensor):
     ''' Split a 2*c channels image into two c channels images, in order to adapt to MMsegmentation '''
 
     # determine 3D tensor or 4D tensor

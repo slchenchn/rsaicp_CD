@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-07-06
-Last Modified: 2021-08-21
+Last Modified: 2021-09-01
 	content: 
 '''
 
@@ -14,7 +14,7 @@ from mmcv.runner import load_checkpoint
 from mmcv.utils.parrots_wrapper import _BatchNorm
 from mmcv.utils import print_log
 
-from mmseg.utils import get_root_logger, split_images
+from mmseg.utils import get_root_logger, split_images, split_batches
 from .. import builder
 from ..builder import BACKBONES
 
@@ -37,21 +37,35 @@ class SiamBackboneWrapper(nn.Module):
         self.backbone.init_weights(*args, **kargs)
 
     def forward(self, x):
-        x1, x2 = split_images(x)
-        
-        out1 = self.backbone(x1)
-        out2 = self.backbone(x2)
-        out = []
-        for sub_out1, sub_out2 in zip(out1, out2):
-            if self.merge_method.lower() in ('conc', 'concatenate'):
-                sub_out = torch.cat((sub_out1, sub_out2), dim=1)
-            
-            elif self.merge_method.lower() == 'add':
-                sub_out = sub_out1 + sub_out2
 
-            elif self.merge_method.lower() in ('sub', 'subtraction'):
-                sub_out = sub_out1 - sub_out2 # just not to take absolute value
+        ''' code of v1'''
+        # x1, x2 = split_images(x)
+        # out1 = self.backbone(x1)
+        # out2 = self.backbone(x2)
+        # out = []
+
+        # for sub_out1, sub_out2 in zip(out1, out2):
+        #     if self.merge_method.lower() in ('conc', 'concatenate'):
+        #         sub_out = torch.cat((sub_out1, sub_out2), dim=1)
+            
+        #     elif self.merge_method.lower() == 'add':
+        #         sub_out = sub_out1 + sub_out2
+
+        #     elif self.merge_method.lower() in ('sub', 'subtraction'):
+        #         sub_out = sub_out1 - sub_out2 # just not to take absolute value
                 
-            out.append(sub_out)
+        #     out.append(sub_out)
         
-        return out
+        ''' code of v2 '''
+        out = self.backbone(x)
+        new_out = []
+        for sub_out in out:
+            batch_1, batch_2 = split_batches(sub_out)
+            if self.merge_method.lower() in ('conc', 'concatenate'):
+                new_sub_out = torch.cat((batch_1, batch_2), dim=1)
+            elif self.merge_method.lower() in ('sub', 'subtraction'):
+                # just not to take absolute 
+                new_sub_out = batch_1 - batch_2   
+            new_out.append(new_sub_out)
+
+        return new_out
