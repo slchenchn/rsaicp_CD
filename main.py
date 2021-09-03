@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-07-02
-Last Modified: 2021-08-30
+Last Modified: 2021-09-03
 	content: 
 '''
 import time
@@ -17,9 +17,9 @@ from tools.label2rsaicp import label2rsaicp
 def parse_args():
     parser = argparse.ArgumentParser(
         description='mmseg test (and eval) a model')
-    parser.add_argument('--config', help='test config file path', default='configs/siam_swin/siam_upernet_swin_sub_tiny_patch4_window7_512x512_160k_s2looking_pretrain_224x224_1K.py')
+    parser.add_argument('--config', help='test config file path', default='configs/siam_swin/bit_upernet_swin_sub_tiny_patch4_window7_512x512_80k_s2looking_pretrain_224x224_1K.py')
     parser.add_argument('--checkpoint', help='checkpoint file',
-            default='work_dirs/siam_upernet_swin_sub_tiny_patch4_window7_512x512_160k_s2looking_pretrain_224x224_1K/20210826_110505/latest.pth')
+            default='work_dirs/bit_upernet_swin_sub_tiny_patch4_window7_512x512_80k_s2looking_pretrain_224x224_1K/20210901_172534/iter_80000.pth')
     parser.add_argument(
         '--aug-test', action='store_true', help='Use Flip and Multi scale aug')
         
