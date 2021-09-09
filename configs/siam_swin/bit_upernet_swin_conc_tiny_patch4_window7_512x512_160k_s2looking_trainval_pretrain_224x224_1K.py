@@ -6,7 +6,7 @@ Last Modified: 2021-09-09
 '''
 
 _base_ = [
-    './bit_upernet_swin_sub_tiny_patch4_window7_512x512_80k_s2looking_pretrain_224x224_1K.py'
+    './bit_upernet_swin_sub_tiny_patch4_window7_512x512_160k_s2looking_trainval_pretrain_224x224_1K.py'
 ]
 
 model = dict(
@@ -21,4 +21,4 @@ model = dict(
 )
 
 # By default, models are trained on 8 GPUs with 2 images per GPU
-data = dict(samples_per_gpu=4)
+data = dict(samples_per_gpu=6)

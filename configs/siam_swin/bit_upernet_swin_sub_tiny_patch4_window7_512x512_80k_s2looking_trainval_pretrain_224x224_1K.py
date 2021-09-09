@@ -4,15 +4,13 @@ Created Date: 2021-08-25
 Last Modified: 2021-09-09
 	content: 
 '''
-
 _base_ = [
     '../_base_/models/bit_upernet_swin_sub.py', '../_base_/datasets/s2looking_trainval.py',
-    '../_base_/default_runtime.py', '../_base_/schedules/schedule_160k.py'
+    '../_base_/default_runtime.py', '../_base_/schedules/schedule_80k.py'
 ]
 
 model = dict(
     backbone=dict(
-        merge_method='sub',
         pretrained=\
         'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_tiny_patch4_window7_224.pth', # noqa
         embed_dims=96,
@@ -22,16 +20,9 @@ model = dict(
         use_abs_pos_embed=False,
         drop_path_rate=0.3,
         patch_norm=True,
-        pretrain_style='official'
-    ),
-    decode_head=dict(
-        num_classes=4
-    ),
-    auxiliary_head=dict(num_classes=4)
-)
-
-# By default, models are trained on 8 GPUs with 2 images per GPU
-data = dict(samples_per_gpu=4)
+        pretrain_style='official'),
+    decode_head=dict(in_channels=[96, 192, 384, 768], num_classes=4),
+    auxiliary_head=dict(in_channels=384, num_classes=4))
 
 # AdamW optimizer, no weight decay for position embedding & layer norm
 # in backbone
@@ -58,5 +49,7 @@ lr_config = dict(
     min_lr=0.0,
     by_epoch=False)
 
+# By default, models are trained on 8 GPUs with 2 images per GPU
+data = dict(samples_per_gpu=4)
 
 evaluation = dict(metric=['mFscore', 'mFscoreCD'])

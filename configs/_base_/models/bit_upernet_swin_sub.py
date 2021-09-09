@@ -1,12 +1,12 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-08-24
-Last Modified: 2021-09-01
+Last Modified: 2021-09-09
 	content: Perform self-attention on the two images simultaneously, not the paper `BIT`
 '''
 # model settings
-norm_cfg = dict(type='SyncBN', requires_grad=True)
-# norm_cfg = dict(type='BN', requires_grad=True)
+# norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 backbone_norm_cfg = dict(type='LN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
