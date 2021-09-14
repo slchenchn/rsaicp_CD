@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-14
-Last Modified: 2021-08-30
+Last Modified: 2021-09-13
 	content: 
 '''
 # dataset settings
@@ -15,6 +15,7 @@ train_pipeline = [
     dict(type='LoadImagesFromFile'),
     dict(type='LoadAnnotations', reduce_zero_label=False),
     dict(type='TimeShuffle'),
+    # dict(type='MixUpCD'),
     dict(type='Resize', img_scale=img_scale, ratio_range=(0.5, 2.0)),
     dict(type='RandomCrop', crop_size=crop_size, cat_max_ratio=0.75),
     dict(type='RandomFlip', prob=0.5),

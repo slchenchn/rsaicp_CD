@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-07-01
+Last Modified: 2021-09-14
 	content: 
 '''
 import logging
@@ -16,15 +16,21 @@ import torch.distributed as dist
 import torch.nn as nn
 from mmcv.runner import auto_fp16
 
+from mmseg.datasets.pipelines import Compose
 
 class BaseSegmentor(nn.Module):
     """Base class for segmentors."""
 
     __metaclass__ = ABCMeta
 
-    def __init__(self):
+    def __init__(self, batch_pipeline=None):
         super(BaseSegmentor, self).__init__()
         self.fp16_enabled = False
+
+        if batch_pipeline is None:
+            self.batch_pipeline = None
+        else:
+            self.batch_pipeline = Compose(batch_pipeline)
 
     @property
     def with_neck(self):
@@ -155,6 +161,12 @@ class BaseSegmentor(nn.Module):
                 DDP, it means the batch size on each GPU), which is used for
                 averaging the logs.
         """
+
+        # batch pipeline
+        if self.batch_pipeline:
+            data_batch = self.batch_pipeline(data_batch)
+
+        # forward
         losses = self(**data_batch)
         loss, log_vars = self._parse_losses(losses)
 

@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-17
+Last Modified: 2021-09-14
 	content: 
 '''
 from .compose import Compose
@@ -17,6 +17,8 @@ from .transforms_multiple_images import (PhotoMetricDistortionMultiImages,
                                         GaussianBlur)
 from .compose_with_visualization import ComposeWithVisualization
 from .time_shuffle import TimeShuffle
+from .batch_transforms import (BatchNormalize, BatchPhotoMetricDistortion,
+                                BatchMixUpCD)
 
 # __all__ = [
 #     'Compose', 'to_tensor', 'ToTensor', 'ImageToTensor', 'ToDataContainer',

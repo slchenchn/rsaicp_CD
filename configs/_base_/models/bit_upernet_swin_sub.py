@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-08-24
-Last Modified: 2021-09-09
+Last Modified: 2021-09-14
 	content: Perform self-attention on the two images simultaneously, not the paper `BIT`
 '''
 # model settings
@@ -11,6 +11,7 @@ backbone_norm_cfg = dict(type='LN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
     pretrained=None,
+    # batch_pipeline=[dict(type='BatchMixUpCD'),],
     backbone=dict(
         type='BiTemporalTransformerBackbone',
         ori_type='SwinTransformer',
@@ -45,7 +46,7 @@ model = dict(
         norm_cfg=norm_cfg,
         align_corners=False,
         loss_decode=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+            type='CrossEntropyLossWithSoftLabel', use_sigmoid=False, loss_weight=1.0)),
     auxiliary_head=dict(
         type='FCNHead',
         in_channels=384,
@@ -58,7 +59,7 @@ model = dict(
         norm_cfg=norm_cfg,
         align_corners=False,
         loss_decode=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
+            type='CrossEntropyLossWithSoftLabel', use_sigmoid=False, loss_weight=0.4)),
     # model training and testing settings
     train_cfg=dict(),
     test_cfg=dict(mode='whole'))

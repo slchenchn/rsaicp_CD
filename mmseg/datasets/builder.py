@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-08-26
-Last Modified: 2021-09-09
+Last Modified: 2021-09-14
 	content: 
 '''
 import copy
@@ -26,6 +26,7 @@ if platform.system() != 'Windows':
 
 DATASETS = Registry('dataset')
 PIPELINES = Registry('pipeline')
+BATCH_PIPELINES = Registry('batch_pipeline')
 
 
 def _concat_dataset(cfg, default_args=None):

@@ -1,3 +1,9 @@
+'''
+Author: Shuailin Chen
+Created Date: 2021-08-30
+Last Modified: 2021-09-14
+	content: 
+'''
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -25,8 +31,9 @@ class EncoderDecoder(BaseSegmentor):
                  auxiliary_head=None,
                  train_cfg=None,
                  test_cfg=None,
-                 pretrained=None):
-        super(EncoderDecoder, self).__init__()
+                 pretrained=None,
+                 **kargs):
+        super().__init__(**kargs)
         self.backbone = builder.build_backbone(backbone)
         if neck is not None:
             self.neck = builder.build_neck(neck)

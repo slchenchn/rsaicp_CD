@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-06-13
-Last Modified: 2021-08-18
+Last Modified: 2021-09-14
 	content: 
 '''
 from .accuracy import Accuracy, accuracy
@@ -12,6 +12,7 @@ from .lovasz_loss import LovaszLoss
 from .utils import reduce_loss, weight_reduce_loss, weighted_loss
 
 from .loss_with_pre_process import LossWithPreProcess
+from .soft_label import CrossEntropyLossWithSoftLabel
 
 # __all__ = [
 #     'accuracy', 'Accuracy', 'cross_entropy', 'binary_cross_entropy',
