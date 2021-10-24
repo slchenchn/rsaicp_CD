@@ -23,7 +23,7 @@ def wati_for_gpu(required_GB, interval=10):
     gpu_stats = GPUStatCollection.new_query()
     mem_free = gpu_stats.gpus
 
-    print(a)
+    print()
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()

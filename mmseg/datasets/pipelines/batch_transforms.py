@@ -1,7 +1,7 @@
 '''
 Author: Shuailin Chen
 Created Date: 2021-09-01
-Last Modified: 2021-09-14
+Last Modified: 2021-09-18
 	content: perform image transformation on a batch of image, use the interfaces of MMSeg
 '''
 
@@ -107,17 +107,18 @@ class BatchMixUpCD(object):
         
 
     def __call__(self, batch_result):
-        x = batch_result['img']
-        gt = batch_result['gt_semantic_seg']
-        x1, x2 = split_images(x)
+        raise NotImplementedError
+        # x = batch_result['img']
+        # gt = batch_result['gt_semantic_seg']
+        # x1, x2 = split_images(x)
 
-        ratio = self.ratio_sampler.sample([x1.shape[0]])
-        # tm = self.time_sampler.sample([x1.shape[0]])
-        new_x = ratio * x1 + (1-ratio) * x2
+        # ratio = self.ratio_sampler.sample([x1.shape[0]])
+        # # tm = self.time_sampler.sample([x1.shape[0]])
+        # new_x = ratio * x1 + (1-ratio) * x2
 
-        # expand to one hot vector if not
-        if gt.ndim < 4:
-            gt = label_onehot(gt)
+        # # expand to one hot vector if not
+        # if gt.ndim < 4:
+        #     gt = label_onehot(gt)
 
-        if torch.rand()>0.5:
+        # if torch.rand()>0.5:
 
