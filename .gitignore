@@ -122,6 +122,7 @@ data
 *.pkl.json
 *.log.json
 work_dirs/
+pretrain
 
 # Pytorch
 *.pth
