@@ -1,6 +1,4 @@
 # Codes for 2021天智杯-变化检测赛道
-
-# Introduction
 This project is based on [MMSegmentation](https://github.com/open-mmlab/mmsegmentation), modified to accomandate to change detection.
 
 # Siamese framewok
